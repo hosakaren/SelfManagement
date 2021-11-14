@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1zs-er-zmo">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Task List Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="TaskListView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="TaskListController" customModule="SelfManagement" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mnd-lK-mmi" userLabel="separator">
+                                <rect key="frame" x="0.0" y="88" width="414" height="1"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="rFm-l9-mr9"/>
+                                </constraints>
+                            </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="S7T-T6-Iwm" userLabel="未完了、完了">
+                                <rect key="frame" x="5" y="94" width="130" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="H76-J4-lfH"/>
+                                    <constraint firstAttribute="width" constant="130" id="KpY-5W-Pbm"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="未完了"/>
+                                    <segment title="完了"/>
+                                </segments>
+                                <connections>
+                                    <action selector="changeTaskSegment:" destination="Y6W-OH-hqX" eventType="valueChanged" id="sM1-xr-Gk1"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="S7T-T6-Iwm" firstAttribute="top" secondItem="Mnd-lK-mmi" secondAttribute="bottom" constant="5" id="2Qw-vf-rdq"/>
+                            <constraint firstItem="S7T-T6-Iwm" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="5" id="R0z-HU-LHo"/>
+                            <constraint firstItem="Mnd-lK-mmi" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="R5U-qX-2rf"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Mnd-lK-mmi" secondAttribute="trailing" id="azM-va-RgC"/>
+                            <constraint firstItem="Mnd-lK-mmi" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="qus-NG-6zQ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="mqJ-Oq-0mw">
+                        <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="4zD-wf-8w6">
+                            <connections>
+                                <action selector="tapPlusBtn:" destination="Y6W-OH-hqX" id="IhO-UJ-OLp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2775.36231884058" y="83.705357142857139"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="TQU-ON-Lee">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1zs-er-zmo" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="u5x-AJ-pz6">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="ErE-7b-Lj5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j6Y-9q-bKy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1865.217391304348" y="83.705357142857139"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="plus" catalog="system" width="128" height="113"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

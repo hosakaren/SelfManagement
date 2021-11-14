@@ -1,0 +1,11 @@
+//
+//  file_name.strings
+//  SelfManagement
+//
+//  Created by hosakaren on 2021/11/14.
+//
+
+"task_image" = "bookmark.fill";
+"setting_image" = "gearshape.fill";
+"back_btn_image" = "lessthan";
+

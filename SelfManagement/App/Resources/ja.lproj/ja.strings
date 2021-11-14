@@ -1,0 +1,19 @@
+//
+//  ja.strings
+//  SelfManagement
+//
+//  Created by hosakaren on 2021/11/14.
+//
+
+// 画面タイトル
+"task_view_title" = "タスク";
+
+// タグ
+"task_tag" = "タスク";
+"money_tag" = "お金";
+"setting_tag" = "設定";
+
+// ボタン名
+"complete" = "完了";
+"incomplete" = "未完了";
+"save" = "保存";
