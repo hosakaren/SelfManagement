@@ -31,18 +31,20 @@ open class UIViewControllerBase: UIViewController {
     }
     
     /// 画面遷移
-    public func moveScreen(_ id: ViewIdEnum) {
+    public func moveScreen(_ id: ViewIdEnum, animated: Bool = true) {
         //次の画面取得
         let storyboard: UIStoryboard = UIStoryboard(name: id.getViewInfo().view, bundle: nil)
         let nextView = storyboard.instantiateInitialViewController()
         nextView?.modalPresentationStyle = .fullScreen
+        // 画面遷移アニメーション設定
+        self.storyboard?.instantiateInitialViewController()?.modalTransitionStyle = .partialCurl
         // 遷移
-        self.present(nextView!, animated: false, completion: nil)
+        self.present(nextView!, animated: animated, completion: nil)
     }
     
     /// 前の画面に戻る
-    public func goBack() {
-        dismiss(animated: false, completion: nil)
+    public func goBack(animated: Bool = true) {
+        dismiss(animated: animated, completion: nil)
     }
     
     /// ナビゲーションバー設定
@@ -66,8 +68,23 @@ open class UIViewControllerBase: UIViewController {
                     action: #selector(tapBackBtn))
                 navigationItem.leftBarButtonItem = backBtnItem
                 navigationItem.leftBarButtonItem?.tintColor = .white
+                
+                // スワイプで戻る設定
+                naviController.interactivePopGestureRecognizer?.isEnabled = false
+                setupLeftSwipeBack()
             }
         }
+    }
+    
+    /// スワイプで戻るセットアップ
+    private func setupLeftSwipeBack() {
+        let edgeSwipeGesture = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(swipeBack))
+        edgeSwipeGesture.edges = .left
+        self.view.addGestureRecognizer(edgeSwipeGesture)
+    }
+    /// スワイプで戻る
+    @objc func swipeBack() {
+        self.navigationController?.popViewController(animated: true)
     }
     
     /// 戻るボタンタップ
@@ -118,7 +135,7 @@ extension UIViewControllerBase: UITabBarDelegate {
     
     open func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         switch item.tag {
-        case 1: moveScreen(.task_list)
+        case 1: moveScreen(.task_list, animated: false)
         case 2: print("")
         case 3: print("")
         default: break

@@ -21,6 +21,10 @@
 		4716F22A2737D38F006F9038 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4716F2292737D38F006F9038 /* SceneDelegate.swift */; };
 		4716F22C2737D38F006F9038 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4716F22B2737D38F006F9038 /* ViewController.swift */; };
 		4716F2312737D390006F9038 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4716F2302737D390006F9038 /* Assets.xcassets */; };
+		47778E6A27427F09009B80CE /* TaskListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47778E6827427F09009B80CE /* TaskListCell.swift */; };
+		47778E6B27427F09009B80CE /* TaskListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47778E6927427F09009B80CE /* TaskListCell.xib */; };
+		47778E6F2742802D009B80CE /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47778E6D2742802D009B80CE /* DatePickerViewController.swift */; };
+		47778E702742802D009B80CE /* DatePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47778E6E2742802D009B80CE /* DatePickerView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +43,10 @@
 		4716F22B2737D38F006F9038 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4716F2302737D390006F9038 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4716F2352737D390006F9038 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		47778E6827427F09009B80CE /* TaskListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListCell.swift; sourceTree = "<group>"; };
+		47778E6927427F09009B80CE /* TaskListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskListCell.xib; sourceTree = "<group>"; };
+		47778E6D2742802D009B80CE /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
+		47778E6E2742802D009B80CE /* DatePickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatePickerView.xib; sourceTree = "<group>"; };
 		6B968F5B78EFC2E777D49EEA /* Pods_SelfManagement.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SelfManagement.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CD8166CD7A91A833DD72464 /* Pods-SelfManagement.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SelfManagement.debug.xcconfig"; path = "Target Support Files/Pods-SelfManagement/Pods-SelfManagement.debug.xcconfig"; sourceTree = "<group>"; };
 		D91FC406D5945DF58A3FA5A8 /* Pods-SelfManagement.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SelfManagement.release.xcconfig"; path = "Target Support Files/Pods-SelfManagement/Pods-SelfManagement.release.xcconfig"; sourceTree = "<group>"; };
@@ -76,6 +84,7 @@
 		470E1ADD273F45C700B37BA5 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				47778E6C27427FFB009B80CE /* DatePicker */,
 				470E1AE1273F9D3500B37BA5 /* UIViewControllerBase.swift */,
 				470E1AEC273FD9E400B37BA5 /* ViewIdEnum.swift */,
 			);
@@ -110,6 +119,8 @@
 			children = (
 				470E1AE5273F9E0500B37BA5 /* TaskListController.swift */,
 				470E1AE9273F9E3200B37BA5 /* TaskListView.storyboard */,
+				47778E6827427F09009B80CE /* TaskListCell.swift */,
+				47778E6927427F09009B80CE /* TaskListCell.xib */,
 			);
 			path = TaskList;
 			sourceTree = "<group>";
@@ -177,6 +188,15 @@
 			path = App;
 			sourceTree = "<group>";
 		};
+		47778E6C27427FFB009B80CE /* DatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				47778E6D2742802D009B80CE /* DatePickerViewController.swift */,
+				47778E6E2742802D009B80CE /* DatePickerView.xib */,
+			);
+			path = DatePicker;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -239,7 +259,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				470E1AEA273F9E3200B37BA5 /* TaskListView.storyboard in Resources */,
+				47778E702742802D009B80CE /* DatePickerView.xib in Resources */,
 				4714F301274074680048A928 /* TaskDetailView.storyboard in Resources */,
+				47778E6B27427F09009B80CE /* TaskListCell.xib in Resources */,
 				470E1B0D2740664F00B37BA5 /* file_name.strings in Resources */,
 				470E1B042740632000B37BA5 /* ja.strings in Resources */,
 				4716F2312737D390006F9038 /* Assets.xcassets in Resources */,
@@ -296,10 +318,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				4716F22C2737D38F006F9038 /* ViewController.swift in Sources */,
+				47778E6A27427F09009B80CE /* TaskListCell.swift in Sources */,
 				470E1AE2273F9D3500B37BA5 /* UIViewControllerBase.swift in Sources */,
 				470E1AED273FD9E400B37BA5 /* ViewIdEnum.swift in Sources */,
 				4716F2282737D38F006F9038 /* AppDelegate.swift in Sources */,
 				470E1AE6273F9E0500B37BA5 /* TaskListController.swift in Sources */,
+				47778E6F2742802D009B80CE /* DatePickerViewController.swift in Sources */,
 				4716F22A2737D38F006F9038 /* SceneDelegate.swift in Sources */,
 				470E1B0027405F1E00B37BA5 /* Localize.swift in Sources */,
 				4714F303274074C20048A928 /* TaskDetailController.swift in Sources */,
