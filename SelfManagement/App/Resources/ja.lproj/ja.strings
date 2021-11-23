@@ -17,3 +17,10 @@
 "complete" = "完了";
 "incomplete" = "未完了";
 "save" = "保存";
+"close" = "閉じる";
+"cancel" = "キャンセル";
+
+"no_data_label" = "表示できるデータがありません。";
+
+"no_content_task" = "タスク内容、期日が未記入です。";
+"is_save_task" = "タスクを保存しますか？";

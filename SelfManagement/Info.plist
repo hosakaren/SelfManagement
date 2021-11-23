@@ -16,7 +16,7 @@
 					<key>UISceneDelegateClassName</key>
 					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
 					<key>UISceneStoryboardFile</key>
-					<string>TaskListView</string>
+					<string>LaunchView</string>
 				</dict>
 			</array>
 		</dict>

@@ -8,22 +8,44 @@
 import UIKit
 
 public enum ViewIdEnum {
-    
+    /// 起動画面
+    case launch
     /// タスク一覧
     case task_list
     /// タスク詳細
     case task_detail
     
     func getViewInfo() -> (
-        view: String,
+        fileName: String,
         title: String,
-        isNavigationBar: Bool, isBackBtn: Bool,
+        isNavigationBar: Bool,
+        isBackBtn: Bool,
         isBottomTabBar: Bool) {
             switch self {
+            case .launch:
+                return (
+                    fileName: LaunchViewController.fileName,
+                    title: LaunchViewController.title,
+                    isNavigationBar: false,
+                    isBackBtn: false,
+                    isBottomTabBar: false
+                )
             case .task_list:
-                return (view: "TaskListView", title: Localize.ja("task_view_title"), isNavigationBar: true, isBackBtn: false, isBottomTabBar: true)
+                return (
+                    fileName: TaskListController.fileName,
+                    title: TaskListController.title,
+                    isNavigationBar: true,
+                    isBackBtn: false,
+                    isBottomTabBar: true
+                )
             case .task_detail:
-                return (view: "TaskDetailView", title: Localize.ja("task_view_title"), isNavigationBar: true, isBackBtn: true, isBottomTabBar: true)
+                return (
+                    fileName: TaskDetailController.fileName,
+                    title: TaskDetailController.title,
+                    isNavigationBar: true,
+                    isBackBtn: true,
+                    isBottomTabBar: true
+                )
             }
     }
 }

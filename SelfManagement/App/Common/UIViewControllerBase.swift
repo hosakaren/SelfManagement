@@ -15,31 +15,33 @@ open class UIViewControllerBase: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor.init(named: "view_back_ground")
         // ナビゲーションバー設定
-        settingNaviBar()
+        if getViewInfo().isNavigationBar {
+            settingNaviBar()
+        }
         
         //ボトムタブ表示
         if getViewInfo().isBottomTabBar {
-            createBottomTab()
+            //createBottomTab()
         }
     }
     
     // FG遷移
     public override func viewWillAppear(_ animated: Bool) {
-        
+        super.viewWillAppear(animated)
+        self.view.backgroundColor = UIColor.init(named: "view_back_ground")
     }
     
     /// 画面遷移
     public func moveScreen(_ id: ViewIdEnum, animated: Bool = true) {
         //次の画面取得
-        let storyboard: UIStoryboard = UIStoryboard(name: id.getViewInfo().view, bundle: nil)
+        let storyboard: UIStoryboard = UIStoryboard(name: id.getViewInfo().fileName, bundle: nil)
         let nextView = storyboard.instantiateInitialViewController()
         nextView?.modalPresentationStyle = .fullScreen
         // 画面遷移アニメーション設定
         self.storyboard?.instantiateInitialViewController()?.modalTransitionStyle = .partialCurl
         // 遷移
-        self.present(nextView!, animated: animated, completion: nil)
+        self.present(nextView!, animated: animated)
     }
     
     /// 前の画面に戻る
@@ -51,7 +53,7 @@ open class UIViewControllerBase: UIViewController {
     private func settingNaviBar() {
         if let naviController = self.navigationController {
             self.navigationItem.title = getViewInfo().title
-            naviController.navigationBar.backgroundColor = .clear
+            naviController.navigationBar.backgroundColor = UIColor.init(named: "view_back_ground")
             naviController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
             
             if let rightBarButtonItems = navigationItem.rightBarButtonItems {
@@ -78,13 +80,20 @@ open class UIViewControllerBase: UIViewController {
     
     /// スワイプで戻るセットアップ
     private func setupLeftSwipeBack() {
-        let edgeSwipeGesture = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(swipeBack))
-        edgeSwipeGesture.edges = .left
-        self.view.addGestureRecognizer(edgeSwipeGesture)
+            if let screenCount = navigationController?.viewControllers.count,
+           screenCount > 0 {
+            let edgeSwipeGesture =
+                UIScreenEdgePanGestureRecognizer(target: self, action: #selector(swipeBack))
+            edgeSwipeGesture.edges = .left
+            self.view.addGestureRecognizer(edgeSwipeGesture)
+        }
+        
     }
     /// スワイプで戻る
-    @objc func swipeBack() {
-        self.navigationController?.popViewController(animated: true)
+    @objc func swipeBack(recognizer: UIScreenEdgePanGestureRecognizer) {
+        if recognizer.state == .began {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
     /// 戻るボタンタップ
@@ -93,7 +102,11 @@ open class UIViewControllerBase: UIViewController {
     }
     
     /// View情報取得
-    private func getViewInfo() -> (view: String, title: String, isNavigationBar: Bool, isBackBtn: Bool, isBottomTabBar: Bool) { viewId().getViewInfo()
+    private func getViewInfo() -> (
+        fileName: String,
+        title: String,
+        isNavigationBar: Bool, isBackBtn: Bool, isBottomTabBar: Bool) {
+            viewId().getViewInfo()
     }
     
 }
@@ -135,7 +148,7 @@ extension UIViewControllerBase: UITabBarDelegate {
     
     open func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         switch item.tag {
-        case 1: moveScreen(.task_list, animated: false)
+        case 1: moveScreen(.task_list, animated: true)
         case 2: print("")
         case 3: print("")
         default: break

@@ -23,8 +23,25 @@
 		4716F2312737D390006F9038 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4716F2302737D390006F9038 /* Assets.xcassets */; };
 		47778E6A27427F09009B80CE /* TaskListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47778E6827427F09009B80CE /* TaskListCell.swift */; };
 		47778E6B27427F09009B80CE /* TaskListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47778E6927427F09009B80CE /* TaskListCell.xib */; };
-		47778E6F2742802D009B80CE /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47778E6D2742802D009B80CE /* DatePickerViewController.swift */; };
-		47778E702742802D009B80CE /* DatePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47778E6E2742802D009B80CE /* DatePickerView.xib */; };
+		47778E72274526B5009B80CE /* UIDialogViewControllerBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47778E71274526B5009B80CE /* UIDialogViewControllerBase.swift */; };
+		477E0FDC274B31EA0070578D /* TaskRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477E0FDB274B31E90070578D /* TaskRepository.swift */; };
+		477E0FDE274B38F20070578D /* BaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477E0FDD274B38F20070578D /* BaseRepository.swift */; };
+		477E0FE2274B4A250070578D /* TaskViewSharing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477E0FE1274B4A250070578D /* TaskViewSharing.swift */; };
+		477E0FE5274B4E0E0070578D /* MessageDialogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477E0FE4274B4E0E0070578D /* MessageDialogViewController.swift */; };
+		477E0FE7274B4E3A0070578D /* MessageDialogView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 477E0FE6274B4E3A0070578D /* MessageDialogView.storyboard */; };
+		477E0FEE274B511C0070578D /* FooterBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477E0FEC274B511C0070578D /* FooterBtnView.swift */; };
+		477E0FEF274B511C0070578D /* FooterBtnView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 477E0FED274B511C0070578D /* FooterBtnView.xib */; };
+		477E0FF1274B5AFC0070578D /* ExtensionUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477E0FF0274B5AFC0070578D /* ExtensionUIView.swift */; };
+		47B9C0E127490C0200A98C34 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B9C0E027490C0200A98C34 /* UIViewControllerExtension.swift */; };
+		47B9C0E4274911AF00A98C34 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B9C0E2274911AE00A98C34 /* DatePickerViewController.swift */; };
+		47B9C0EA2749234C00A98C34 /* ExtensionBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B9C0E92749234C00A98C34 /* ExtensionBundle.swift */; };
+		47B9C0EC2749246A00A98C34 /* ExtensionNSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B9C0EB2749246A00A98C34 /* ExtensionNSObject.swift */; };
+		47E167AD274B86AE00653DB9 /* AllService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E167AC274B86AE00653DB9 /* AllService.swift */; };
+		47E167B0274B8AE300653DB9 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E167AF274B8AE300653DB9 /* LaunchViewController.swift */; };
+		47E167B2274B8B1500653DB9 /* LaunchView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47E167B1274B8B1500653DB9 /* LaunchView.storyboard */; };
+		47E167B4274BAB2A00653DB9 /* FooterBtnEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E167B3274BAB2A00653DB9 /* FooterBtnEnum.swift */; };
+		47F00C2327496BA90083528F /* DatePickerView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47F00C2227496BA90083528F /* DatePickerView.storyboard */; };
+		47F00C2627496E170083528F /* StoryBoardInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F00C2527496E170083528F /* StoryBoardInstance.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,8 +62,25 @@
 		4716F2352737D390006F9038 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		47778E6827427F09009B80CE /* TaskListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListCell.swift; sourceTree = "<group>"; };
 		47778E6927427F09009B80CE /* TaskListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskListCell.xib; sourceTree = "<group>"; };
-		47778E6D2742802D009B80CE /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
-		47778E6E2742802D009B80CE /* DatePickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatePickerView.xib; sourceTree = "<group>"; };
+		47778E71274526B5009B80CE /* UIDialogViewControllerBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDialogViewControllerBase.swift; sourceTree = "<group>"; };
+		477E0FDB274B31E90070578D /* TaskRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRepository.swift; sourceTree = "<group>"; };
+		477E0FDD274B38F20070578D /* BaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRepository.swift; sourceTree = "<group>"; };
+		477E0FE1274B4A250070578D /* TaskViewSharing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewSharing.swift; sourceTree = "<group>"; };
+		477E0FE4274B4E0E0070578D /* MessageDialogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDialogViewController.swift; sourceTree = "<group>"; };
+		477E0FE6274B4E3A0070578D /* MessageDialogView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MessageDialogView.storyboard; sourceTree = "<group>"; };
+		477E0FEC274B511C0070578D /* FooterBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterBtnView.swift; sourceTree = "<group>"; };
+		477E0FED274B511C0070578D /* FooterBtnView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FooterBtnView.xib; sourceTree = "<group>"; };
+		477E0FF0274B5AFC0070578D /* ExtensionUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIView.swift; sourceTree = "<group>"; };
+		47B9C0E027490C0200A98C34 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		47B9C0E2274911AE00A98C34 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
+		47B9C0E92749234C00A98C34 /* ExtensionBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionBundle.swift; sourceTree = "<group>"; };
+		47B9C0EB2749246A00A98C34 /* ExtensionNSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionNSObject.swift; sourceTree = "<group>"; };
+		47E167AC274B86AE00653DB9 /* AllService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllService.swift; sourceTree = "<group>"; };
+		47E167AF274B8AE300653DB9 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		47E167B1274B8B1500653DB9 /* LaunchView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchView.storyboard; sourceTree = "<group>"; };
+		47E167B3274BAB2A00653DB9 /* FooterBtnEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterBtnEnum.swift; sourceTree = "<group>"; };
+		47F00C2227496BA90083528F /* DatePickerView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DatePickerView.storyboard; sourceTree = "<group>"; };
+		47F00C2527496E170083528F /* StoryBoardInstance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryBoardInstance.swift; sourceTree = "<group>"; };
 		6B968F5B78EFC2E777D49EEA /* Pods_SelfManagement.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SelfManagement.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CD8166CD7A91A833DD72464 /* Pods-SelfManagement.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SelfManagement.debug.xcconfig"; path = "Target Support Files/Pods-SelfManagement/Pods-SelfManagement.debug.xcconfig"; sourceTree = "<group>"; };
 		D91FC406D5945DF58A3FA5A8 /* Pods-SelfManagement.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SelfManagement.release.xcconfig"; path = "Target Support Files/Pods-SelfManagement/Pods-SelfManagement.release.xcconfig"; sourceTree = "<group>"; };
@@ -81,12 +115,28 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		470C125D274BC17C00A3978C /* FooterBtn */ = {
+			isa = PBXGroup;
+			children = (
+				477E0FEC274B511C0070578D /* FooterBtnView.swift */,
+				477E0FED274B511C0070578D /* FooterBtnView.xib */,
+				47E167B3274BAB2A00653DB9 /* FooterBtnEnum.swift */,
+			);
+			path = FooterBtn;
+			sourceTree = "<group>";
+		};
 		470E1ADD273F45C700B37BA5 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				47778E6C27427FFB009B80CE /* DatePicker */,
+				470C125D274BC17C00A3978C /* FooterBtn */,
+				477E0FE3274B4DE60070578D /* MessageDialog */,
+				47F00C2427496DF80083528F /* Instantiation */,
+				47B9C0DF27490BD500A98C34 /* Extension */,
+				47778E6C27427FFB009B80CE /* DatePickerView */,
 				470E1AE1273F9D3500B37BA5 /* UIViewControllerBase.swift */,
 				470E1AEC273FD9E400B37BA5 /* ViewIdEnum.swift */,
+				47778E71274526B5009B80CE /* UIDialogViewControllerBase.swift */,
+				47E167AC274B86AE00653DB9 /* AllService.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -94,24 +144,19 @@
 		470E1ADE273F45DF00B37BA5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				470E1AE4273F9DEE00B37BA5 /* TaskDetail */,
-				470E1AE3273F9DDB00B37BA5 /* TaskList */,
+				47E167AE274B8AAB00653DB9 /* Launch */,
+				477E0FDF274B44610070578D /* Task */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		470E1ADF273F9CF900B37BA5 /* Scheme */ = {
+		470E1AE0273F9D1200B37BA5 /* RealmRepository */ = {
 			isa = PBXGroup;
 			children = (
+				477E0FDB274B31E90070578D /* TaskRepository.swift */,
+				477E0FDD274B38F20070578D /* BaseRepository.swift */,
 			);
-			path = Scheme;
-			sourceTree = "<group>";
-		};
-		470E1AE0273F9D1200B37BA5 /* Repository */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Repository;
+			path = RealmRepository;
 			sourceTree = "<group>";
 		};
 		470E1AE3273F9DDB00B37BA5 /* TaskList */ = {
@@ -180,21 +225,67 @@
 			isa = PBXGroup;
 			children = (
 				470E1AEB273FCD5700B37BA5 /* Resources */,
-				470E1AE0273F9D1200B37BA5 /* Repository */,
-				470E1ADF273F9CF900B37BA5 /* Scheme */,
+				470E1AE0273F9D1200B37BA5 /* RealmRepository */,
 				470E1ADE273F45DF00B37BA5 /* View */,
 				470E1ADD273F45C700B37BA5 /* Common */,
 			);
 			path = App;
 			sourceTree = "<group>";
 		};
-		47778E6C27427FFB009B80CE /* DatePicker */ = {
+		47778E6C27427FFB009B80CE /* DatePickerView */ = {
 			isa = PBXGroup;
 			children = (
-				47778E6D2742802D009B80CE /* DatePickerViewController.swift */,
-				47778E6E2742802D009B80CE /* DatePickerView.xib */,
+				47B9C0E2274911AE00A98C34 /* DatePickerViewController.swift */,
+				47F00C2227496BA90083528F /* DatePickerView.storyboard */,
 			);
-			path = DatePicker;
+			path = DatePickerView;
+			sourceTree = "<group>";
+		};
+		477E0FDF274B44610070578D /* Task */ = {
+			isa = PBXGroup;
+			children = (
+				470E1AE3273F9DDB00B37BA5 /* TaskList */,
+				470E1AE4273F9DEE00B37BA5 /* TaskDetail */,
+				477E0FE1274B4A250070578D /* TaskViewSharing.swift */,
+			);
+			path = Task;
+			sourceTree = "<group>";
+		};
+		477E0FE3274B4DE60070578D /* MessageDialog */ = {
+			isa = PBXGroup;
+			children = (
+				477E0FE4274B4E0E0070578D /* MessageDialogViewController.swift */,
+				477E0FE6274B4E3A0070578D /* MessageDialogView.storyboard */,
+			);
+			path = MessageDialog;
+			sourceTree = "<group>";
+		};
+		47B9C0DF27490BD500A98C34 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				47B9C0E027490C0200A98C34 /* UIViewControllerExtension.swift */,
+				47B9C0E92749234C00A98C34 /* ExtensionBundle.swift */,
+				47B9C0EB2749246A00A98C34 /* ExtensionNSObject.swift */,
+				477E0FF0274B5AFC0070578D /* ExtensionUIView.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		47E167AE274B8AAB00653DB9 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				47E167AF274B8AE300653DB9 /* LaunchViewController.swift */,
+				47E167B1274B8B1500653DB9 /* LaunchView.storyboard */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
+		47F00C2427496DF80083528F /* Instantiation */ = {
+			isa = PBXGroup;
+			children = (
+				47F00C2527496E170083528F /* StoryBoardInstance.swift */,
+			);
+			path = Instantiation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,12 +350,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				470E1AEA273F9E3200B37BA5 /* TaskListView.storyboard in Resources */,
-				47778E702742802D009B80CE /* DatePickerView.xib in Resources */,
 				4714F301274074680048A928 /* TaskDetailView.storyboard in Resources */,
+				477E0FEF274B511C0070578D /* FooterBtnView.xib in Resources */,
 				47778E6B27427F09009B80CE /* TaskListCell.xib in Resources */,
+				477E0FE7274B4E3A0070578D /* MessageDialogView.storyboard in Resources */,
 				470E1B0D2740664F00B37BA5 /* file_name.strings in Resources */,
 				470E1B042740632000B37BA5 /* ja.strings in Resources */,
 				4716F2312737D390006F9038 /* Assets.xcassets in Resources */,
+				47E167B2274B8B1500653DB9 /* LaunchView.storyboard in Resources */,
+				47F00C2327496BA90083528F /* DatePickerView.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,13 +412,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				4716F22C2737D38F006F9038 /* ViewController.swift in Sources */,
+				47778E72274526B5009B80CE /* UIDialogViewControllerBase.swift in Sources */,
+				477E0FDC274B31EA0070578D /* TaskRepository.swift in Sources */,
 				47778E6A27427F09009B80CE /* TaskListCell.swift in Sources */,
+				47E167B0274B8AE300653DB9 /* LaunchViewController.swift in Sources */,
 				470E1AE2273F9D3500B37BA5 /* UIViewControllerBase.swift in Sources */,
 				470E1AED273FD9E400B37BA5 /* ViewIdEnum.swift in Sources */,
+				47B9C0EA2749234C00A98C34 /* ExtensionBundle.swift in Sources */,
+				477E0FDE274B38F20070578D /* BaseRepository.swift in Sources */,
+				477E0FEE274B511C0070578D /* FooterBtnView.swift in Sources */,
+				477E0FF1274B5AFC0070578D /* ExtensionUIView.swift in Sources */,
+				47B9C0EC2749246A00A98C34 /* ExtensionNSObject.swift in Sources */,
 				4716F2282737D38F006F9038 /* AppDelegate.swift in Sources */,
+				47F00C2627496E170083528F /* StoryBoardInstance.swift in Sources */,
+				47E167B4274BAB2A00653DB9 /* FooterBtnEnum.swift in Sources */,
 				470E1AE6273F9E0500B37BA5 /* TaskListController.swift in Sources */,
-				47778E6F2742802D009B80CE /* DatePickerViewController.swift in Sources */,
+				47B9C0E127490C0200A98C34 /* UIViewControllerExtension.swift in Sources */,
+				477E0FE5274B4E0E0070578D /* MessageDialogViewController.swift in Sources */,
+				47B9C0E4274911AF00A98C34 /* DatePickerViewController.swift in Sources */,
+				477E0FE2274B4A250070578D /* TaskViewSharing.swift in Sources */,
 				4716F22A2737D38F006F9038 /* SceneDelegate.swift in Sources */,
+				47E167AD274B86AE00653DB9 /* AllService.swift in Sources */,
 				470E1B0027405F1E00B37BA5 /* Localize.swift in Sources */,
 				4714F303274074C20048A928 /* TaskDetailController.swift in Sources */,
 			);
@@ -468,30 +576,32 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FP5WBG69SB;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SelfManagement/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "私生活管理";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = TaskListView;
-				INFOPLIST_KEY_UIMainStoryboardFile = TaskListView;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchView;
+				INFOPLIST_KEY_UIMainStoryboardFile = LaunchView;
 				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UIStatusBarHidden = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "swift-tutorial.SelfManagement";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -501,30 +611,32 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FP5WBG69SB;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SelfManagement/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "私生活管理";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = TaskListView;
-				INFOPLIST_KEY_UIMainStoryboardFile = TaskListView;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchView;
+				INFOPLIST_KEY_UIMainStoryboardFile = LaunchView;
 				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UIStatusBarHidden = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "swift-tutorial.SelfManagement";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

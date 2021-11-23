@@ -25,13 +25,10 @@ class TaskListCell: UICollectionViewCell {
     public var callBackTapCellArea: (() -> Void)?
     
     private var isFinished: Bool = false
+    private let dateFormatter = AllService.singleton.getDateFormatter(format: .yyyyMMdd)
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        // cellタップ
-        let tapView = UITapGestureRecognizer(target: self, action: #selector(tapCell))
-        self.contentView.addGestureRecognizer(tapView)
         
         // チェックマークタップ
         let tapCheckMarkView = UITapGestureRecognizer(target: self, action: #selector(tapCheckMarkArea))
@@ -41,15 +38,21 @@ class TaskListCell: UICollectionViewCell {
     public func setupCell(
         isFinished: Bool = false,
         content: String,
-        date: String
+        date: Date
     ) {
         self.isFinished = isFinished
         setupCheckMark(isFinished: isFinished)
         self.content.text = content
-        self.date.text = date
+        self.date.text = dateFormatter.string(from: date)
         
         /// 期日チェック入れる
+        if date < Date() && !isFinished {
+            self.date.textColor = UIColor.red
+        } else {
+            self.date.textColor = UIColor.white
+        }
         
+        setupCheckMark(isFinished: isFinished)
     }
     
     /// チェックマークエリアタップ
@@ -64,10 +67,6 @@ class TaskListCell: UICollectionViewCell {
             
             /// 完了しましたポップアップ表示
         }
-    }
-    /// セルタップ
-    @objc func tapCell() {
-        
     }
     
     private func setupCheckMark(isFinished: Bool) {
