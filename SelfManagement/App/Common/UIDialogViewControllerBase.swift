@@ -9,6 +9,8 @@ import UIKit
 
 public class UIDialogViewControllerBase: UIViewController {
         
+    var isCloseTapBackground: Bool = true
+    
     open override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,8 +30,10 @@ public class UIDialogViewControllerBase: UIViewController {
     
     open override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        for touch: UITouch in touches where touch.view!.tag == -1 {
-            dismiss(animated: true, completion: nil)
+        if isCloseTapBackground {
+            for touch: UITouch in touches where touch.view!.tag == -1 {
+                dismiss(animated: true, completion: nil)
+            }
         }
     }
         

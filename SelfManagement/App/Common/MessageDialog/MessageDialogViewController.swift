@@ -25,6 +25,8 @@ public class MessageDialogViewController: UIDialogViewControllerBase {
         self.message = message
         self.btnType = btnType
         self.tapBtnCallbackFunc = tapBtnCallbackFunc
+        
+        self.isCloseTapBackground = btnType.isCloseTapBackground
     }
     
     public override func viewDidLoad() {

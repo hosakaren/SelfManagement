@@ -24,3 +24,8 @@
 
 "no_content_task" = "タスク内容、期日が未記入です。";
 "is_save_task" = "タスクを保存しますか？";
+
+"is_task_complete_finishing" = "完了にしますか?";
+"is_task_complete_finishing_yet" = "元に戻しますか？";
+"yes" = "はい";
+"no" = "いいえ";

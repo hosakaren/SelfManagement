@@ -36,6 +36,7 @@
 		47B9C0E4274911AF00A98C34 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B9C0E2274911AE00A98C34 /* DatePickerViewController.swift */; };
 		47B9C0EA2749234C00A98C34 /* ExtensionBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B9C0E92749234C00A98C34 /* ExtensionBundle.swift */; };
 		47B9C0EC2749246A00A98C34 /* ExtensionNSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B9C0EB2749246A00A98C34 /* ExtensionNSObject.swift */; };
+		47C6081027524A6B00C26E56 /* ExtensionUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C6080F27524A6B00C26E56 /* ExtensionUIImage.swift */; };
 		47E167AD274B86AE00653DB9 /* AllService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E167AC274B86AE00653DB9 /* AllService.swift */; };
 		47E167B0274B8AE300653DB9 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E167AF274B8AE300653DB9 /* LaunchViewController.swift */; };
 		47E167B2274B8B1500653DB9 /* LaunchView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47E167B1274B8B1500653DB9 /* LaunchView.storyboard */; };
@@ -75,6 +76,7 @@
 		47B9C0E2274911AE00A98C34 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		47B9C0E92749234C00A98C34 /* ExtensionBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionBundle.swift; sourceTree = "<group>"; };
 		47B9C0EB2749246A00A98C34 /* ExtensionNSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionNSObject.swift; sourceTree = "<group>"; };
+		47C6080F27524A6B00C26E56 /* ExtensionUIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIImage.swift; sourceTree = "<group>"; };
 		47E167AC274B86AE00653DB9 /* AllService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllService.swift; sourceTree = "<group>"; };
 		47E167AF274B8AE300653DB9 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		47E167B1274B8B1500653DB9 /* LaunchView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchView.storyboard; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 				47B9C0E92749234C00A98C34 /* ExtensionBundle.swift */,
 				47B9C0EB2749246A00A98C34 /* ExtensionNSObject.swift */,
 				477E0FF0274B5AFC0070578D /* ExtensionUIView.swift */,
+				47C6080F27524A6B00C26E56 /* ExtensionUIImage.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 				477E0FDE274B38F20070578D /* BaseRepository.swift in Sources */,
 				477E0FEE274B511C0070578D /* FooterBtnView.swift in Sources */,
 				477E0FF1274B5AFC0070578D /* ExtensionUIView.swift in Sources */,
+				47C6081027524A6B00C26E56 /* ExtensionUIImage.swift in Sources */,
 				47B9C0EC2749246A00A98C34 /* ExtensionNSObject.swift in Sources */,
 				4716F2282737D38F006F9038 /* AppDelegate.swift in Sources */,
 				47F00C2627496E170083528F /* StoryBoardInstance.swift in Sources */,

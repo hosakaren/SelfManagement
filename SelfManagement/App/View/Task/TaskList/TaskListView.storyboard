@@ -7,7 +7,6 @@
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ATe-G9-w9Z">
-                                <rect key="frame" x="0.0" y="134" width="414" height="728"/>
+                                <rect key="frame" x="10" y="134" width="394" height="728"/>
                                 <color key="backgroundColor" name="view_back_ground"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="0hS-Rf-yUg">
                                     <size key="itemSize" width="128" height="128"/>
@@ -28,19 +27,11 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="RAB-Ud-4yS" customClass="TaskListCell" customModule="SelfManagement" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="m22-Lo-9pQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </collectionViewCellContentView>
-                                    </collectionViewCell>
-                                </cells>
+                                <cells/>
                             </collectionView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="S7T-T6-Iwm" userLabel="未完了、完了">
                                 <rect key="frame" x="279" y="94" width="130" height="36"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="H76-J4-lfH"/>
                                     <constraint firstAttribute="width" constant="130" id="KpY-5W-Pbm"/>
@@ -73,7 +64,7 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="ATe-G9-w9Z" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="0aJ-Oz-mmA"/>
+                            <constraint firstItem="ATe-G9-w9Z" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="0aJ-Oz-mmA"/>
                             <constraint firstItem="S7T-T6-Iwm" firstAttribute="top" secondItem="Mnd-lK-mmi" secondAttribute="bottom" constant="5" id="2Qw-vf-rdq"/>
                             <constraint firstItem="ATe-G9-w9Z" firstAttribute="top" secondItem="S7T-T6-Iwm" secondAttribute="bottom" constant="5" id="5rw-UE-ALT"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="S7T-T6-Iwm" secondAttribute="trailing" constant="5" id="B7E-Gb-oCG"/>
@@ -81,13 +72,24 @@
                             <constraint firstItem="Mnd-lK-mmi" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="R5U-qX-2rf"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="ATe-G9-w9Z" secondAttribute="bottom" id="W5q-5C-uBw"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Mnd-lK-mmi" secondAttribute="trailing" id="azM-va-RgC"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ATe-G9-w9Z" secondAttribute="trailing" id="fPO-QH-36i"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ATe-G9-w9Z" secondAttribute="trailing" constant="10" id="fPO-QH-36i"/>
                             <constraint firstItem="jY4-7O-MqM" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="oXF-Md-ffY"/>
                             <constraint firstItem="Mnd-lK-mmi" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="qus-NG-6zQ"/>
                             <constraint firstItem="jY4-7O-MqM" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="xke-p3-Cuo"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="mqJ-Oq-0mw">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="9Tu-hK-l03">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Odg-Lf-cXN">
+                                <rect key="frame" x="20" y="5" width="92" height="34.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="tapSelectBtn:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="4bL-Rb-9Xd"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="4zD-wf-8w6">
                             <connections>
                                 <action selector="tapPlusBtn:" destination="Y6W-OH-hqX" id="IhO-UJ-OLp"/>
@@ -98,6 +100,7 @@
                     <connections>
                         <outlet property="collectionView" destination="ATe-G9-w9Z" id="5VO-45-adX"/>
                         <outlet property="noDataLabel" destination="jY4-7O-MqM" id="RNx-jk-6yz"/>
+                        <outlet property="selectBtn" destination="9Tu-hK-l03" id="RNF-tP-ORy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

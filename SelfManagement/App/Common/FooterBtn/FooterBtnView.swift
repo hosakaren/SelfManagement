@@ -100,6 +100,17 @@ import UIKit
             
             leftBtn.setTitle(btnType.btnLabel[0], for: .normal)
             rightBtn.setTitle(btnType.btnLabel[1], for: .normal)
+        case .yes_and_no:
+            singleBtn.isHidden = true
+            leftBtn.isHidden = false
+            rightBtn.isHidden = false
+            
+            singleBtn.isEnabled = false
+            leftBtn.isEnabled = true
+            rightBtn.isEnabled = true
+            
+            leftBtn.setTitle(btnType.btnLabel[0], for: .normal)
+            rightBtn.setTitle(btnType.btnLabel[1], for: .normal)
         default: break
         }
     }

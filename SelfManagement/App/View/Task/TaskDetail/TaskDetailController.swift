@@ -21,11 +21,23 @@ public class TaskDetailController: UIViewControllerBase {
     fileprivate let max_line_count: Int = 20
     fileprivate let max_word_count: Int = 200
     
+    private var id: String?
+    
     /// 画面読み込み完了
     public override func viewDidLoad() {
         super.viewDidLoad()
         // textView delegate設定
         textView.delegate = self
+        
+        let id = TaskViewSharing.singleton.id
+        if let id = id {
+            self.id = id
+            self.textView.text = TaskViewSharing.singleton.content
+            let date = TaskViewSharing.singleton.targetDate
+            let dateFormatter = AllService.singleton.getDateFormatter(format: .yyyyMMdd)
+            self.dateBtn.setTitle(dateFormatter.string(from: date!), for: .normal)
+            self.initialDate = date
+        }
         
 //        let tapGesture = UIGestureRecognizer(target: self, action: #selector(closeKeyBoard))
 //        self.view.addGestureRecognizer(tapGesture)
@@ -43,9 +55,9 @@ public class TaskDetailController: UIViewControllerBase {
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        if textView.text.count > 0, initialDate != nil {
-            createTask()
-        }
+//        if textView.text.count > 0, initialDate != nil {
+//            createTask()
+//        }
     }
     
     /// 時間ボタンタップ
@@ -69,8 +81,6 @@ public class TaskDetailController: UIViewControllerBase {
                 btnType: .close,
                 tapBtnCallbackFunc: { _ in
                     // ダイアログdismiss
-                    self.dismiss(animated: true)
-                    // detail-dismiss
                     self.dismiss(animated: true)
                 }
             )

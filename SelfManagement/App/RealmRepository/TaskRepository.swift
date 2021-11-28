@@ -31,6 +31,13 @@ class TaskRepository: BaseRepository {
         }
     }
     
+    func updateIsFinished(_ task: TaskScheme, isFinished: Bool) {
+        try! realm.write {
+            task.isFinished = isFinished
+            realm.add(task, update: .modified)
+        }
+    }
+    
     func findOne(_ id: String) -> TaskScheme? {
         realm.object(ofType: TaskScheme.self, forPrimaryKey: id)
     }

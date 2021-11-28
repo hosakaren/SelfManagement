@@ -39,7 +39,7 @@ open class UIViewControllerBase: UIViewController {
         let nextView = storyboard.instantiateInitialViewController()
         nextView?.modalPresentationStyle = .fullScreen
         // 画面遷移アニメーション設定
-        self.storyboard?.instantiateInitialViewController()?.modalTransitionStyle = .partialCurl
+        self.storyboard?.instantiateInitialViewController()?.modalTransitionStyle = .crossDissolve
         // 遷移
         self.present(nextView!, animated: animated)
     }
