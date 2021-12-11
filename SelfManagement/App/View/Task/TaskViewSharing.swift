@@ -9,7 +9,7 @@ import UIKit
 
 public class TaskViewSharing: NSObject {
     
-    public static let singleton = TaskViewSharing()
+    public static let shared = TaskViewSharing()
     
     public override init() {}
     

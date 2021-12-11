@@ -17,7 +17,7 @@ public protocol StoryBoardNameProtocol {
 public class StoryBoardInstance: NSObject {
     
     private override init() {}
-    public static let singleton = StoryBoardInstance()
+    public static let shared = StoryBoardInstance()
     
     public func instanceVC(fileName: String) -> UIViewController {
         let storyboard: UIStoryboard = UIStoryboard(name: fileName, bundle: nil)

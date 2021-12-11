@@ -38,6 +38,15 @@ class TaskRepository: BaseRepository {
         }
     }
     
+    func update(_ task: TaskScheme, content: String, targetDate: Date, isFinished: Bool) {
+        try! realm.write {
+            task.content = content
+            task.targetDate = targetDate
+            task.isFinished = isFinished
+            realm.add(task, update: .all)
+        }
+    }
+    
     func findOne(_ id: String) -> TaskScheme? {
         realm.object(ofType: TaskScheme.self, forPrimaryKey: id)
     }

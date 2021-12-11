@@ -8,7 +8,7 @@ import UIKit
 
 public class AllService: NSObject {
     
-    public static let singleton = AllService()
+    public static let shared = AllService()
     
     public override init() {}
     

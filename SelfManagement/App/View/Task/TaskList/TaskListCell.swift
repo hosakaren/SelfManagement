@@ -2,7 +2,7 @@
 //  TaskListCell.swift
 //  SelfManagement
 //
-//  Created by works on 2021/11/15.
+//  Created by hosakaren on 2021/11/15.
 //
 
 import UIKit
@@ -17,12 +17,11 @@ import UIKit
     @IBOutlet weak var date: UILabel!
     
     
-    public var callBackTapCheckMarkArea: (() -> Void)?
-    public var callBackTapCellArea: (() -> Void)?
+    public var tapCellCallbackFunc: (() -> Void)?
     public var tapBtnCallbackFunc: ((_ isFinished: Bool) -> Void)?
     
     private var isFinished: Bool = false
-    private let dateFormatter = AllService.singleton.getDateFormatter(format: .yyyyMMdd)
+    private let dateFormatter = AllService.shared.getDateFormatter(format: .yyyyMMdd)
     private var isDeleteMode: Bool = false
 
     public var displayView: UICollectionViewCell?
@@ -72,6 +71,9 @@ import UIKit
         squareImage = squareImage?.resize(image: squareImage!, width: width, height: height)
         checkMarkImage = checkMarkImage?.resize(image: checkMarkImage!, width: width, height: height)
         trashImage = trashImage?.resize(image: trashImage!, width: width, height: height)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapCell))
+        displayView?.addGestureRecognizer(tapGesture)
     }
     
     public func setupCell(
@@ -79,13 +81,15 @@ import UIKit
         content: String,
         date: Date,
         isDeleteMode: Bool = false,
-        tapBtnCallbackFunc: ((_ isFinished: Bool) -> Void)?
+        tapBtnCallbackFunc: ((_ isFinished: Bool) -> Void)?,
+        tapCellCallbackFunc: (() -> Void)?
     ) {
         self.isFinished = isFinished
         self.content.text = content
         self.date.text = dateFormatter.string(from: date)
         self.isDeleteMode = isDeleteMode
         self.tapBtnCallbackFunc = tapBtnCallbackFunc
+        self.tapCellCallbackFunc = tapCellCallbackFunc
         
         /// 期日チェック入れる
         if date < Date() && !isFinished {
@@ -122,6 +126,10 @@ import UIKit
                 selectBtn.setImage(squareImage, for: .normal)
             }
         }
+    }
+    
+    @objc func tapCell() {
+        tapCellCallbackFunc?()
     }
     
 }

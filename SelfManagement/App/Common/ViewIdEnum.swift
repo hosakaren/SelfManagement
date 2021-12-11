@@ -8,8 +8,12 @@
 import UIKit
 
 public enum ViewIdEnum {
+    
+    case none
     /// 起動画面
     case launch
+    /// bottom Tab
+    case bottom_tab
     /// タスク一覧
     case task_list
     /// タスク詳細
@@ -22,6 +26,14 @@ public enum ViewIdEnum {
         isBackBtn: Bool,
         isBottomTabBar: Bool) {
             switch self {
+            case .bottom_tab:
+                return (
+                    fileName: UITabViewControllerBase.fileName,
+                    title: UITabViewControllerBase.title,
+                    isNavigationBar: false,
+                    isBackBtn: false,
+                    isBottomTabBar: true
+                )
             case .launch:
                 return (
                     fileName: LaunchViewController.fileName,
@@ -46,6 +58,16 @@ public enum ViewIdEnum {
                     isBackBtn: true,
                     isBottomTabBar: true
                 )
+            default:
+                return (
+                    fileName: "",
+                    title: "",
+                    isNavigationBar: false,
+                    isBackBtn: false,
+                    isBottomTabBar: false
+                )
             }
-    }
+        }
+    
 }
+

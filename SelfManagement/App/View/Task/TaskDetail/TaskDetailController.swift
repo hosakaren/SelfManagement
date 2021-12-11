@@ -10,7 +10,7 @@ import UIKit
 
 public class TaskDetailController: UIViewControllerBase {
     
-    public override func viewId() -> ViewIdEnum! { ViewIdEnum.task_detail }
+    public override func viewId() -> ViewIdEnum { ViewIdEnum.task_detail }
     /// テキストビュー
     @IBOutlet weak var textView: UITextView!
 
@@ -23,27 +23,30 @@ public class TaskDetailController: UIViewControllerBase {
     
     private var id: String?
     
+    let repo = AppData.shared.taskRepo
+    
     /// 画面読み込み完了
     public override func viewDidLoad() {
         super.viewDidLoad()
         // textView delegate設定
         textView.delegate = self
         
-        let id = TaskViewSharing.singleton.id
+        let id = TaskViewSharing.shared.id
         if let id = id {
             self.id = id
-            self.textView.text = TaskViewSharing.singleton.content
-            let date = TaskViewSharing.singleton.targetDate
-            let dateFormatter = AllService.singleton.getDateFormatter(format: .yyyyMMdd)
+            self.textView.text = TaskViewSharing.shared.content
+            let date = TaskViewSharing.shared.targetDate
+            let dateFormatter = AllService.shared.getDateFormatter(format: .yyyyMMdd)
             self.dateBtn.setTitle(dateFormatter.string(from: date!), for: .normal)
             self.initialDate = date
         }
         
-//        let tapGesture = UIGestureRecognizer(target: self, action: #selector(closeKeyBoard))
-//        self.view.addGestureRecognizer(tapGesture)
-//        let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(closeKeyBoard))
-//        swipeGesture.direction = .down
-//        self.view.addGestureRecognizer(swipeGesture)
+        let tapGesture = UIGestureRecognizer(target: self, action: #selector(closeKeyBoard))
+        self.view.addGestureRecognizer(tapGesture)
+        
+        let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(closeKeyBoard))
+        swipeGesture.direction = .down
+        self.view.addGestureRecognizer(swipeGesture)
     }
     
     public override func viewWillAppear(_ animated: Bool) {
@@ -62,11 +65,12 @@ public class TaskDetailController: UIViewControllerBase {
     
     /// 時間ボタンタップ
     @IBAction func tapDateBtn(_ sender: Any) {
-        let nextView = StoryBoardInstance.singleton.instanceVC(fileName: DatePickerViewController.fileName) as! DatePickerViewController
+        self.textView.endEditing(true)
+        let nextView = StoryBoardInstance.shared.instanceVC(fileName: DatePickerViewController.fileName) as! DatePickerViewController
         nextView.initialDate = initialDate
         nextView.callbackFunc = { date in
             self.initialDate = date
-            let dateFormatter = AllService.singleton.getDateFormatter(format: .yyyyMMdd)
+            let dateFormatter = AllService.shared.getDateFormatter(format: .yyyyMMdd)
             self.dateBtn.setTitle(dateFormatter.string(from: date), for: .normal)
         }
         self.present(nextView, animated: true)
@@ -74,7 +78,7 @@ public class TaskDetailController: UIViewControllerBase {
     
     /// 保存ボタンタップ
     @IBAction func tapSaveBtn(_ sender: Any) {
-        let dialog = StoryBoardInstance.singleton.instanceVC(fileName: MessageDialogViewController.fileName) as! MessageDialogViewController
+        let dialog = StoryBoardInstance.shared.instanceVC(fileName: MessageDialogViewController.fileName) as! MessageDialogViewController
         if textView.text.count == 0 || initialDate == nil{
             dialog.setupDialog(
                 message: Localize.ja("no_content_task"),
@@ -88,13 +92,14 @@ public class TaskDetailController: UIViewControllerBase {
             dialog.setupDialog(
                 message: Localize.ja("is_save_task"),
                 btnType: .save_and_cancel,
-                tapBtnCallbackFunc: { type in
+                tapBtnCallbackFunc: { [weak self] type in
+                    guard let self = self else { return }
                     if type == .ok {
                         self.createTask()
                         // ダイアログdismiss
                         self.dismiss(animated: true)
                         // detail-dismiss
-                        self.dismiss(animated: true)
+                        self.goBack(animated: true)
                     } else {
                         self.dismiss(animated: true)
                     }
@@ -110,12 +115,9 @@ public class TaskDetailController: UIViewControllerBase {
     }
     
     private func createTask() {
-        let repo = TaskRepository()
-        if let id = TaskViewSharing.singleton.id {
+        if let id = TaskViewSharing.shared.id {
             let scheme = repo.findOne(id)
-            scheme?.content = textView.text
-            scheme?.targetDate = initialDate
-            repo.save(scheme!)
+            repo.update(scheme!, content: textView.text, targetDate: initialDate!, isFinished: scheme!.isFinished)
         } else {
             let scheme = TaskScheme()
             scheme.content = textView.text

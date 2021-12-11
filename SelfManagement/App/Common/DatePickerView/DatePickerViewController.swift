@@ -28,14 +28,15 @@ public class DatePickerViewController: UIDialogViewControllerBase {
         // datePickerのテキストカラーを設定
         datePicker.setValue(UIColor.white, forKey: "textColor")
         datePicker.setValue(false, forKey: "highlightsToday")
-        
+                
     }
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         footerBtn.setupBtn(
             btnType: .save,
-            tapBtnCallbackFunc: { _ in
+            tapBtnCallbackFunc: { [weak self] _ in
+                guard let self = self else { return }
                 self.callbackFunc?(self.datePicker.date)
                 self.dismiss(animated: true)
             }

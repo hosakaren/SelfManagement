@@ -10,8 +10,9 @@ import UIKit
 
 open class TaskListController: UIViewControllerBase {
     
-    public override func viewId() -> ViewIdEnum! { ViewIdEnum.task_list }
+    public override func viewId() -> ViewIdEnum { ViewIdEnum.task_list }
         
+    @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var noDataLabel: UILabel!
     @IBOutlet weak var selectBtn: UIBarButtonItem!
@@ -19,6 +20,8 @@ open class TaskListController: UIViewControllerBase {
     fileprivate var displayCollectionList: [TaskScheme] = []
     
     private var isSelectedComplete: Bool = false
+    
+    let repo = AppData.shared.taskRepo
     
     /// 画面読み込み完了
     public override func viewDidLoad() {
@@ -30,11 +33,26 @@ open class TaskListController: UIViewControllerBase {
         
         collectionView.register(TaskListCell.self, forCellWithReuseIdentifier: "TaskListCell")
         
-        let repo = TaskRepository()
         displayCollectionList = repo.findByIsFinished(isSelectedComplete) ?? []
         
         noDataLabel.text = Localize.ja("no_data_label")
         noDataLabel.isHidden = !displayCollectionList.isEmpty
+        
+        segmentControl.setTitleTextAttributes( [NSAttributedString.Key.foregroundColor: UIColor.black], for: .normal)
+
+        let rightSwipe = UISwipeGestureRecognizer(
+            target: self,
+            action: #selector(swipeView)
+        )
+        rightSwipe.direction = .right
+        self.view.addGestureRecognizer(rightSwipe)
+        
+        let leftSwipe = UISwipeGestureRecognizer(
+            target: self,
+            action: #selector(swipeView)
+        )
+        leftSwipe.direction = .left
+        self.view.addGestureRecognizer(leftSwipe)
         
     }
     
@@ -43,14 +61,12 @@ open class TaskListController: UIViewControllerBase {
         selectBtn.isEnabled = false
         selectBtn.customView?.isHidden = true
         
-        let repo = TaskRepository()
         displayCollectionList = repo.findByIsFinished(isSelectedComplete) ?? []
         collectionView.reloadData()
     }
 
     // セグメント変更
     @IBAction func changeSegmentedControl(_ sender: UISegmentedControl) {
-        let repo = TaskRepository()
         isSelectedComplete = sender.selectedSegmentIndex == 1
         displayCollectionList = repo.findByIsFinished(isSelectedComplete) ?? []
         noDataLabel.isHidden = !displayCollectionList.isEmpty
@@ -60,14 +76,31 @@ open class TaskListController: UIViewControllerBase {
     
     // 詳細(登録)画面遷移
     @IBAction func tapPlusBtn(_ sender: Any) {
-        TaskViewSharing.singleton.id = nil
-        TaskViewSharing.singleton.content = nil
-        TaskViewSharing.singleton.targetDate = nil
+        TaskViewSharing.shared.id = nil
+        TaskViewSharing.shared.content = nil
+        TaskViewSharing.shared.targetDate = nil
         moveScreen(.task_detail)
     }
     
     @IBAction func tapSelectBtn(_ sender: Any) {
         
+    }
+    
+    @objc func swipeView(_ sender: UISwipeGestureRecognizer) {
+        switch sender.direction {
+        case .left:
+            if !isSelectedComplete {
+                segmentControl.selectedSegmentIndex = 1
+                changeSegmentedControl(segmentControl)
+            }
+        case .right:
+            if isSelectedComplete {
+                segmentControl.selectedSegmentIndex = 0
+                changeSegmentedControl(segmentControl)
+            }
+        default: break
+        }
+
     }
 }
 
@@ -87,8 +120,9 @@ extension TaskListController: UICollectionViewDelegate {
             content: displayCell.content,
             date: displayCell.targetDate,
             isDeleteMode: false,
-            tapBtnCallbackFunc: { isFinished in
-                let messageDialog = StoryBoardInstance.singleton.instanceVC(fileName: MessageDialogViewController.fileName) as! MessageDialogViewController
+            tapBtnCallbackFunc: { [weak self] isFinished in
+                guard let self = self else { return }
+                let messageDialog = StoryBoardInstance.shared.instanceVC(fileName: MessageDialogViewController.fileName) as! MessageDialogViewController
                 let message: String = isFinished ? Localize.ja("is_task_complete_finishing") : Localize.ja("is_task_complete_finishing_yet")
                 messageDialog.setupDialog(
                     message: message,
@@ -96,9 +130,8 @@ extension TaskListController: UICollectionViewDelegate {
                     tapBtnCallbackFunc: { returnFooterBtn in
                         switch returnFooterBtn {
                         case .ok:
-                            let repo = TaskRepository()
-                            repo.updateIsFinished(displayCell, isFinished: isFinished)
-                            self.displayCollectionList = repo.findByIsFinished(self.isSelectedComplete) ?? []
+                            self.repo.updateIsFinished(displayCell, isFinished: isFinished)
+                            self.displayCollectionList = self.repo.findByIsFinished(self.isSelectedComplete) ?? []
                             self.dismiss(animated: true)
                             collectionView.reloadData()
                         default:
@@ -108,21 +141,18 @@ extension TaskListController: UICollectionViewDelegate {
                     }
                 )
                 self.present(messageDialog, animated: true)
+            },
+            tapCellCallbackFunc: { [weak self] in
+                guard let self = self else { return }
+                let id = displayCell.id
+                let taskScheme = self.repo.findOne(id)
+                TaskViewSharing.shared.id = taskScheme?.id
+                TaskViewSharing.shared.content = taskScheme?.content
+                TaskViewSharing.shared.targetDate = taskScheme?.targetDate
+                self.moveScreen(.task_detail)
             }
         )
         return cell
-    }
-    
-    /// セルタップ
-    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let diplayCell = displayCollectionList[indexPath.row]
-        let id = diplayCell.id
-        let repo = TaskRepository()
-        let taskScheme = repo.findOne(id)
-        TaskViewSharing.singleton.id = taskScheme?.id
-        TaskViewSharing.singleton.content = taskScheme?.content
-        TaskViewSharing.singleton.targetDate = taskScheme?.targetDate
-        self.moveScreen(.task_detail)
     }
     
 }
