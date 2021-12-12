@@ -30,6 +30,8 @@ public class TaskDetailController: UIViewControllerBase {
         super.viewDidLoad()
         // textView delegate設定
         textView.delegate = self
+        textView.backgroundColor = .white
+        
         
         let id = TaskViewSharing.shared.id
         if let id = id {
@@ -41,9 +43,6 @@ public class TaskDetailController: UIViewControllerBase {
             self.initialDate = date
         }
         
-        let tapGesture = UIGestureRecognizer(target: self, action: #selector(closeKeyBoard))
-        self.view.addGestureRecognizer(tapGesture)
-        
         let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(closeKeyBoard))
         swipeGesture.direction = .down
         self.view.addGestureRecognizer(swipeGesture)
@@ -51,7 +50,6 @@ public class TaskDetailController: UIViewControllerBase {
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        textView.backgroundColor = .white
     }
     
     /// 画面から離れる際の動作
@@ -63,9 +61,12 @@ public class TaskDetailController: UIViewControllerBase {
 //        }
     }
     
+    open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     /// 時間ボタンタップ
     @IBAction func tapDateBtn(_ sender: Any) {
-        self.textView.endEditing(true)
         let nextView = StoryBoardInstance.shared.instanceVC(fileName: DatePickerViewController.fileName) as! DatePickerViewController
         nextView.initialDate = initialDate
         nextView.callbackFunc = { date in

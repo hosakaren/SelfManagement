@@ -58,7 +58,7 @@ open class UIViewControllerBase: UIViewController {
             
             naviController.interactivePopGestureRecognizer?.isEnabled = true
 
-            naviBar.isTranslucent = false
+            naviBar.isTranslucent = true
             naviBar.backgroundColor = UIColor.init(named: "view_back_ground")
             naviBar.titleTextAttributes = [.foregroundColor: UIColor.white]
             
