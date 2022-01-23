@@ -13,12 +13,6 @@ public class LaunchViewController: UIViewControllerBase {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // 3秒後移動
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-            self.moveScreen(.task_list)
-            //             self.moveScreen(.bottom?tab)
-        }
     }
     
     public override func viewWillAppear(_ animated: Bool) {

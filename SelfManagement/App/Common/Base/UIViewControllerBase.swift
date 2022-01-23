@@ -21,6 +21,8 @@ open class UIViewControllerBase: UIViewController {
         super.viewWillAppear(animated)
         self.view.backgroundColor = UIColor.init(named: "view_back_ground")
         
+        // ボトムタブ設定
+        setBotttomtabbar()
         // ナビゲーションバー設定
         settingNaviBar()
     }
@@ -32,7 +34,7 @@ open class UIViewControllerBase: UIViewController {
         let nextView = storyboard.instantiateInitialViewController()
         nextView?.modalPresentationStyle = .fullScreen
         // 画面遷移アニメーション設定
-        self.storyboard?.instantiateInitialViewController()?.modalTransitionStyle = .crossDissolve
+        //self.storyboard?.instantiateInitialViewController()?.modalTransitionStyle = .crossDissolve
         // 遷移
         if let naviController = self.navigationController {
             naviController.pushViewController(nextView!, animated: true)
@@ -61,8 +63,8 @@ open class UIViewControllerBase: UIViewController {
             naviBar.isTranslucent = true
             naviBar.backgroundColor = UIColor.init(named: "view_back_ground")
             naviBar.titleTextAttributes = [.foregroundColor: UIColor.white]
-            
-            naviItem.title = getViewInfo().title
+            // 後々修正
+            naviItem.title = getViewInfo().title != "" ? getViewInfo().title : "Parent"
             
             naviItem.rightBarButtonItems?.forEach { item in
                 item.tintColor = .white
@@ -90,10 +92,21 @@ open class UIViewControllerBase: UIViewController {
             self.view.addGestureRecognizer(edgeSwipeGesture)
         }
     }
+    
+    
     /// スワイプで戻る
     @objc func swipeBack(recognizer: UIScreenEdgePanGestureRecognizer) {
         if recognizer.state == .began {
             self.navigationController?.popViewController(animated: true)
+        }
+    }
+    
+    /// ボトムタブ設定
+    private func setBotttomtabbar() {
+        if let bottomTabBar = self.tabBarController {
+            bottomTabBar.tabBar.isHidden = !getViewInfo().isBottomTabBar
+//            bottomTabBar.tabBar.isHidden = true
+
         }
     }
     /// View情報取得

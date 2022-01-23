@@ -76,10 +76,26 @@ open class TaskListController: UIViewControllerBase {
     
     // 詳細(登録)画面遷移
     @IBAction func tapPlusBtn(_ sender: Any) {
-        TaskViewSharing.shared.id = nil
-        TaskViewSharing.shared.content = nil
-        TaskViewSharing.shared.targetDate = nil
-        moveScreen(.task_detail)
+        
+        let parentStoryboard: UIStoryboard = UIStoryboard(name: "UIParentPagerView", bundle: nil)
+        let parentVC = parentStoryboard.instantiateInitialViewController() as! UIParentPagerViewControllerBase
+        
+        
+        let granChildStoryboard: UIStoryboard = UIStoryboard(name: "TaskListView", bundle: nil)
+        let grandChildVC = granChildStoryboard.instantiateInitialViewController() as! TaskListController
+        grandChildVC.modalPresentationStyle = .fullScreen
+        
+        let childVC = UIChildPagerViewControllerBase()
+        childVC.setupChildVC(viewControllerList: [(viewController: grandChildVC, title: "保坂")])
+        
+//        childVC.setupChildVC(viewControllerList: [grandChildVC])
+        parentVC.setupChildPagerViewController(childPagerVC: childVC)
+        navigationController?.pushViewController(parentVC, animated: true)
+        
+//        TaskViewSharing.shared.id = nil
+//        TaskViewSharing.shared.content = nil
+//        TaskViewSharing.shared.targetDate = nil
+//        moveScreen(.task_detail)
     }
     
     @IBAction func tapSelectBtn(_ sender: Any) {
@@ -176,7 +192,7 @@ extension TaskListController: UICollectionViewDelegateFlowLayout {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TaskListCell", for: indexPath) as! TaskListCell
         let lineCount: Int = cell.content.numberOfLines
         let textHeight: CGFloat = cell.content.font.lineHeight
-
+        
         var height: CGFloat = textHeight * 5
         if lineCount > 5 {
             height = CGFloat(lineCount) * textHeight

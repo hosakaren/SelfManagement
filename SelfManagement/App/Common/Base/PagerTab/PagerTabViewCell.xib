@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="PagerTabViewCell" customModule="SelfManagement" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="100" height="40"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="100" height="40"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YZj-yE-hcX" userLabel="StatusBar">
+                        <rect key="frame" x="0.0" y="33" width="100" height="7"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="7" id="fXo-72-eqP"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IT5-W4-vhc" userLabel="TabTitle">
+                        <rect key="frame" x="33.5" y="9.5" width="33" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lWP-dW-uqc">
+                        <rect key="frame" x="0.0" y="0.0" width="100" height="40"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain"/>
+                        <connections>
+                            <action selector="tapPagerTabCell:" destination="gTV-IL-0wX" eventType="touchUpInside" id="ufC-ua-4hg"/>
+                        </connections>
+                    </button>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" name="view_back_ground"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="YZj-yE-hcX" secondAttribute="bottom" id="5sv-HS-plc"/>
+                <constraint firstItem="YZj-yE-hcX" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="O5k-UO-QIF"/>
+                <constraint firstItem="lWP-dW-uqc" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Ozg-0z-VLJ"/>
+                <constraint firstAttribute="bottom" secondItem="lWP-dW-uqc" secondAttribute="bottom" id="RkU-S2-yrk"/>
+                <constraint firstAttribute="trailing" secondItem="lWP-dW-uqc" secondAttribute="trailing" id="p93-10-4TH"/>
+                <constraint firstAttribute="trailing" secondItem="YZj-yE-hcX" secondAttribute="trailing" id="sYG-oO-zbf"/>
+                <constraint firstItem="IT5-W4-vhc" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="uZs-LM-I5M"/>
+                <constraint firstItem="lWP-dW-uqc" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="vIm-96-6Ns"/>
+                <constraint firstItem="IT5-W4-vhc" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="zUG-P7-qP5"/>
+            </constraints>
+            <connections>
+                <outlet property="statusBarView" destination="YZj-yE-hcX" id="ER0-81-ZXJ"/>
+                <outlet property="tabTitleLabel" destination="IT5-W4-vhc" id="79E-8v-pjh"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="113.83928571428571"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="view_back_ground">
+            <color red="0.12600000202655792" green="0.1080000028014183" blue="0.40400001406669617" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

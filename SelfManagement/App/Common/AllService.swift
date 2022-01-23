@@ -20,6 +20,17 @@ public class AllService: NSObject {
         dateFormatter.dateFormat = format.value
         return dateFormatter
     }
+    
+    public func getStringNumberOfLine(_ keyword: String) -> Int {
+        var count: Int = 0
+        print(keyword)
+        var nextrange = keyword.startIndex ..< keyword.endIndex
+        while let range = keyword.range(of: "/n", options: .caseInsensitive, range: nextrange) {
+            count += 1
+            nextrange = range.upperBound ..< keyword.endIndex
+        }
+        return count
+    }
 }
 
 public enum DateFormatterEnum {

@@ -8,7 +8,7 @@
 import UIKit
 
 @IBDesignable class TaskListCell: UICollectionViewCell {
-
+    
     /// ボタン
     @IBOutlet weak var selectBtn: UIButton!
     /// タスクコンテンツ
@@ -23,7 +23,7 @@ import UIKit
     private var isFinished: Bool = false
     private let dateFormatter = AllService.shared.getDateFormatter(format: .yyyyMMdd)
     private var isDeleteMode: Bool = false
-
+    
     public var displayView: UICollectionViewCell?
     
     private var squareImage: UIImage? = UIImage(systemName: "square")
@@ -39,7 +39,7 @@ import UIKit
         super.init(frame: frame)
         loadFromNib()
     }
-
+    
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         loadFromNib()
@@ -107,7 +107,7 @@ import UIKit
             /// 削除しますかポップアップ表示
             
             ///Yes delete No stay
-
+            
         } else {
             self.isFinished = !self.isFinished
             setupSelectImage(isFinished: self.isFinished, isDeleteMode: false)
